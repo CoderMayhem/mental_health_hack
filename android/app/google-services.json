@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077122033766",
+    "project_id": "mind-care-41ef4",
+    "storage_bucket": "mind-care-41ef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077122033766:android:bdba6d0596450216c165a7",
+        "android_client_info": {
+          "package_name": "com.example.mind_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077122033766-m8e2jeubmf6nb699j6ik4fq1qcjn8fte.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mind_care",
+            "certificate_hash": "9af5b60225666d62fc5b114d88c3551cb7d8a12b"
+          }
+        },
+        {
+          "client_id": "1077122033766-q90p33a094jtpog8deptnvvi4dm73pm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGt9CuZmAmTtO4ww15PbOWGTiVZuIYO7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077122033766-q90p33a094jtpog8deptnvvi4dm73pm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
