@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mind_care/model/user.dart';
 import 'package:mind_care/views/homepage.dart';
+import 'package:mind_care/views/imagePreviewScreen.dart';
+import 'package:mind_care/views/infopage.dart';
 import 'package:mind_care/views/login.dart';
 import 'package:mind_care/views/register.dart';
 import 'package:mind_care/views/welcome_screen.dart';
@@ -18,6 +20,8 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   static User currentUser;
+  static int bottomBarIndex;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,6 +30,8 @@ class MyAppState extends State<MyApp> {
       '/welcome': (context) => WelcomeScreen(),
       '/login': (context) => LoginScreen(),
       '/register': (context) => RegistrationScreen(),
+      '/image_preview' : (context) => ImagePreviewScreen(),
+      '/info' : (context) => InfoPage(),
     });
   }
 }

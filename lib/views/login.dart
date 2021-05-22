@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                                 MyAppState.currentUser = user;
                               });
-                             Navigator.pushNamed(context, '/',
+                             Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false,
                                  arguments: {'userId': user.userId, 'user': user});
                           }
                       setState(() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mind_care/model/user.dart';
+import 'package:mind_care/utilities/bottomNavBar.dart';
 import 'package:mind_care/viewModels/homepage_viewmodel.dart';
 import 'package:mind_care/views/additon/addPost.dart';
 
@@ -15,6 +16,12 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
+@override
+void initState() {
+  MyAppState.bottomBarIndex = 0;
+}
+
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -55,16 +62,19 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.blue[800],
-            child: Icon(Icons.comment, color: Colors.white, size: 20),
-            onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AddPost()));
-            },
-          ),
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: Colors.blue[800],
+                child: Icon(Icons.comment, color: Colors.white, size: 20),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddPost()));
+                },
+              ),
+              bottomNavigationBar: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: double.infinity,
+                  ),
+                  child: MyBottomAppBar()),
             ));
   }
 }
