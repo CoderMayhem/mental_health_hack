@@ -84,6 +84,7 @@ class _PostThreadState extends State<PostThread> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: ScreenUtil().setSp(24),
+              fontFamily: 'Pattaya',
               color: Colors.white,
             ),
           ),
@@ -103,7 +104,6 @@ class _PostThreadState extends State<PostThread> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  HeadingContainer(heading: 'Discussion Thread'),
                   Padding(
                     padding: EdgeInsets.only(
                         top: ScreenUtil().setHeight(20),
@@ -242,7 +242,7 @@ class _PostThreadState extends State<PostThread> {
                             child: Row(
                               children: <Widget>[
                                 SizedBox(width: 10.0),
-                                Icon(Icons.reply, size: 20, color: Colors.white12),
+                                Icon(Icons.reply, size: 20, color: Colors.grey),
                                 SizedBox(width: 10),
                                 Text(
                                   'Reply',

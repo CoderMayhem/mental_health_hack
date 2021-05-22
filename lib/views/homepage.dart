@@ -4,6 +4,7 @@ import 'package:mind_care/model/user.dart';
 import 'package:mind_care/utilities/bottomNavBar.dart';
 import 'package:mind_care/viewModels/homepage_viewmodel.dart';
 import 'package:mind_care/views/additon/addPost.dart';
+import 'package:mind_care/views/infopage.dart';
 
 import '../main.dart';
 
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         designSize: Size(360, 640),
         builder: () => Scaffold(
               extendBody: true,
-              backgroundColor: Colors.white70,
+              backgroundColor: Colors.grey[200],
               appBar: AppBar(
                 automaticallyImplyLeading: false,
                 title: Text(
@@ -43,9 +44,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 actions: <Widget>[
-                  InkWell(
-                    child: Icon(Icons.account_circle_rounded,
-                        color: Colors.white, size: 20),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0,0,20,0),
+                    child: InkWell(
+                      child: Icon(Icons.account_circle_rounded,
+                          color: Colors.white, size: 30),
+                      onTap: (){showToast('Hi USER');},
+                    ),
                   ),
                 ],
               ),

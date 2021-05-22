@@ -136,6 +136,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           'postUpvotes': 0,
                           'replyUpvotes': 0,
                           'zenRating': 0,
+                          'streak' : 0,
                         }).then((v) {
                           user = User(
                               name: name,
@@ -144,7 +145,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               postIds: [],
                               postUpvotes: 0,
                               replyUpvotes: 0,
-                              zenRating: 0);
+                              zenRating: 0,
+                              streak: 0);
                         });
                         MyAppState.currentUser = user;
                         Navigator.pushNamedAndRemoveUntil(

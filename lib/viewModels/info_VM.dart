@@ -17,6 +17,7 @@ class InfoVM extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
       stream: _firestore
           .collection('info')
+          .orderBy('timestamp', descending: true)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -27,17 +28,13 @@ class InfoVM extends StatelessWidget {
           );
         }
 
-        print('Reched Here 1');
-        print(snapshot.data.documents);
-
         final info = snapshot.data.documents;
-        print(info);
         List<InfoCard> infoCards = [];
         for (var details in info) {
           final headingText = details.data['heading'];
           final bodyText = details.data['body'];
           final postedBy = details.data['postedBy'];
-          final time = details.data['timeStamp'];
+          final time = details.data['timestamp'];
           final infoId = details.documentID;
           final imageUrl = details.data['imageUrl'];
           final List<dynamic> upvotesList = details.data['upvotes'] ?? [];
@@ -75,7 +72,7 @@ class InfoVM extends StatelessWidget {
 
   Widget _buildTappableCardList(List<InfoCard> infoCards) {
     return Container(
-      color: Colors.grey,
+      //color: Colors.grey,
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: ListView.builder(

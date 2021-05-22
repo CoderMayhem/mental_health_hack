@@ -50,7 +50,7 @@ class _AddPostState extends State<AddPost> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             //HeadingContainer(heading: 'Discussion Thread'),
             SizedBox(height: 20),
@@ -59,7 +59,7 @@ class _AddPostState extends State<AddPost> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(20), bottom: Radius.circular(20))),
+                      top: Radius.circular(20), bottom: Radius.circular(0))),
               child: Form(
                 key: _key,
                 child: Column(
@@ -67,8 +67,8 @@ class _AddPostState extends State<AddPost> {
                     Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
-                        constraints: BoxConstraints(
-                            minHeight: 100),
+                       /* constraints: BoxConstraints(
+                            minHeight: 100),*/
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(15),
@@ -87,8 +87,9 @@ class _AddPostState extends State<AddPost> {
                           },
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Your Query?',
+                            hintText: 'What is it about?',
                             hintStyle: TextStyle(
+                              fontFamily: 'Pattaya',
                               fontSize: 20,
                               color: Color(0x80242424),
                             ),
@@ -101,10 +102,10 @@ class _AddPostState extends State<AddPost> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20),
+                      padding: EdgeInsets.fromLTRB(20,0,20,10),
                       child: Container(
                         constraints: BoxConstraints(
-                            minHeight: 212),
+                            minHeight: 500),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(15),
@@ -123,11 +124,13 @@ class _AddPostState extends State<AddPost> {
                           },
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Describe Your Query',
+                            hintText: 'Describe the experience . . . ',
                             hintStyle: TextStyle(
+                              fontFamily: 'Pattaya',
                               fontSize: 20,
                               color: Color(0x80242424),
                             ),
+                            hintMaxLines: 2,
                             contentPadding: EdgeInsets.all(8),
                           ),
                           onChanged: (val) {
@@ -136,7 +139,26 @@ class _AddPostState extends State<AddPost> {
                         ),
                       ),
                     ),
-                    Container(
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,0,20,10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.blue[800],
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: GestureDetector(
+                              child : Text('Post', style: TextStyle(color: Colors.white, fontSize: 19),),
+
+                            )
+                          ),
+                        ],
+                      ),
+                    )
+                    /*Container(
                       decoration: BoxDecoration(
                           color: Colors.blue[800],
                           borderRadius: BorderRadius.vertical(
@@ -187,7 +209,7 @@ class _AddPostState extends State<AddPost> {
                           ),
                         ),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ),

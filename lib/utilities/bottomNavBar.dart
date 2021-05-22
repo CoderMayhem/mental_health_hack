@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:mind_care/views/homepage.dart';
 import 'package:mind_care/views/infopage.dart';
-import 'package:mind_care/views/meditation.dart';
+import 'package:mind_care/views/streak.dart';
 
 import '../main.dart';
 
@@ -90,12 +89,12 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _currentTabIndex == 2
-                    ? BottomNavTab(activeColor, Icon(Icons.article_rounded, color: Colors.white))
-                    : BottomNavTab(inactiveColor, Icon(Icons.article_rounded, color: Colors.white)),
+                    ? BottomNavTab(activeColor, Icon(Icons.local_fire_department, color: Colors.white))
+                    : BottomNavTab(inactiveColor, Icon(Icons.local_fire_department, color: Colors.white)),
                 Padding(
                   padding: const EdgeInsets.only(top: 1.0),
                   child: Text(
-                    'Meditate',
+                    'Streak',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -126,7 +125,7 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
   void onTapMed() {
     setState(() {
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => MeditationStreak()));
+          new MaterialPageRoute(builder: (context) => Streak()));
       MyAppState.bottomBarIndex = 2;
     });
   }

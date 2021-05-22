@@ -74,7 +74,7 @@ class HomepageVM extends StatelessWidget {
   Widget _buildTappableCardList(List<PostCard> postCards) {
     // ignore: missing_return
     return Container(
-      color: Colors.white54,
+      //color: Colors.white54,
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: ListView.builder(

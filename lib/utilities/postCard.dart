@@ -62,25 +62,6 @@ class PostCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 8),
-                      /*Visibility(
-                        visible: isCounsellor,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(1.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(
-                              'Organizer',
-                              style: TextStyle(
-                                fontSize: ScreenUtil().setSp(10),
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),*/
                     ],
                   ),
                   Text(

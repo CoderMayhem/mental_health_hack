@@ -117,6 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   postUpvotes: result.data['postUpvotes'],
                                   replyUpvotes: result.data['replyUpvotes'],
                                   zenRating: result.data['zenRating'],
+                                  streak: result.data['streak'] ?? 0,
                                 );
                                 MyAppState.currentUser = user;
                               });
