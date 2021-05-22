@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mind_care/main.dart';
 import 'package:mind_care/model/user.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
@@ -103,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           .signInWithEmailAndPassword(
                               email: email, password: password);
                       if (signedInUser != null) {
-                             _firestrore
+                             await _firestrore
                                   .collection('users')
                                   .document(signedInUser.user.uid)
                                   .get()
@@ -117,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   replyUpvotes: result.data['replyUpvotes'],
                                   zenRating: result.data['zenRating'],
                                 );
+                                MyAppState.currentUser = user;
                               });
                              Navigator.pushNamed(context, '/',
                                  arguments: {'userId': user.userId, 'user': user});

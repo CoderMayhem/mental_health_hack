@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mind_care/model/user.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
+import '../main.dart';
+
 class RegistrationScreen extends StatefulWidget {
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
@@ -124,7 +126,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           await _auth.createUserWithEmailAndPassword(
                               email: email, password: password);
                       if (newUser != null) {
-                        _firestrore
+                        await _firestrore
                             .collection('users')
                             .document(newUser.user.uid)
                             .setData({
@@ -144,6 +146,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               replyUpvotes: 0,
                               zenRating: 0);
                         });
+                        MyAppState.currentUser = user;
                         Navigator.pushNamedAndRemoveUntil(
                             context, '/', (Route<dynamic> route) => false,
                             arguments: {'userId': user.userId, 'user': user});
