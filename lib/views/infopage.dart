@@ -46,49 +46,58 @@ class _InfoPageState extends State<InfoPage> {
     }*/
   }
 
+  Future<bool> _onBackPressed(){
+    setState(() {
+      MyAppState.bottomBarIndex = 0;
+      Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // ScreenUtil.init(BoxConstraints(), designSize: Size(360, 640), allowFontScaling: false);
-    return ScreenUtilInit(
-      designSize: Size(360, 640),
-      builder: () => Scaffold(
-        backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Mental Health Feed',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: ScreenUtil().setSp(24),
-              fontFamily: 'Pattaya',
-              color: Colors.white,
-            ),
-          ),
-        ),
-        body: Stack(
-          children: <Widget>[
-            SingleChildScrollView(
-              physics: ScrollPhysics(),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  InfoVM(),
-                ],
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: ScreenUtilInit(
+        designSize: Size(360, 640),
+        builder: () => Scaffold(
+          backgroundColor: Colors.grey[200],
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text(
+              'Mental Health Feed',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ScreenUtil().setSp(24),
+                fontFamily: 'Pattaya',
+                color: Colors.white,
               ),
             ),
-          ],
-        ),
-        floatingActionButton: Visibility(
-          visible: isCounsellor,
-          child: FloatingActionButton(
-            backgroundColor: Colors.blue[800],
-            child: Icon(Icons.post_add,color: Colors.white),
-            onPressed: (){
-              showToast('You need to be a registered counsellor to add to the Mental Health Feed');
-            },
           ),
+          body: Stack(
+            children: <Widget>[
+              SingleChildScrollView(
+                physics: ScrollPhysics(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    InfoVM(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          floatingActionButton: Visibility(
+            visible: isCounsellor,
+            child: FloatingActionButton(
+              backgroundColor: Colors.blue[800],
+              child: Icon(Icons.post_add,color: Colors.white),
+              onPressed: (){
+                showToast('You need to be a registered counsellor to add to the Mental Health Feed');
+              },
+            ),
+          ),
+          bottomNavigationBar: MyBottomAppBar(),
         ),
-        bottomNavigationBar: MyBottomAppBar(),
       ),
     );
   }
