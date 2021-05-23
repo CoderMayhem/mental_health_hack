@@ -21,9 +21,11 @@ class InfoVM extends StatelessWidget {
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Container(
-            child: Center(
-              child: CircularProgressIndicator(),
+          return Center(
+            child: Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           );
         }

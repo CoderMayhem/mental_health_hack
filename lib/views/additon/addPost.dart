@@ -152,7 +152,30 @@ class _AddPostState extends State<AddPost> {
                             ),
                             child: GestureDetector(
                               child : Text('Post', style: TextStyle(color: Colors.white, fontSize: 19),),
-
+                                onTap: () async {
+                                  if (_key.currentState.validate()) {
+                                    _key.currentState.save();
+                                    if (heading != null) {
+                                      showProgress(context, 'Posting new discussion...', false);
+                                      _firestore
+                                          .collection('posts')
+                                          .add({
+                                        'heading': heading,
+                                        'body': body,
+                                        'postedBy': MyAppState.currentUser.name,
+                                        'userId': MyAppState.currentUser.userId,
+                                        'timeStamp': FieldValue.serverTimestamp(),
+                                        'no_of_comments': 0,
+                                        'upvotes': [MyAppState.currentUser.userId],
+                                      }).then((_) {
+                                        hideProgress();
+                                        Navigator.pop(context);
+                                      });
+                                    } else {
+                                      showToast('Heading cannot be empty!');
+                                    }
+                                  }
+                                }
                             )
                           ),
                         ],

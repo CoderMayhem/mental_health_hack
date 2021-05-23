@@ -24,9 +24,11 @@ class HomepageVM extends StatelessWidget {
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Container(
-            child: Center(
-              child: Text('No Posts Up Yet'),//CircularProgressIndicator(),
+          return Center(
+            child: Container(
+              child: Center(
+                child: Text('No Posts Up Yet'),//CircularProgressIndicator(),
+              ),
             ),
           );
         }
