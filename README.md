@@ -1,4 +1,4 @@
-# mind_care
+# MIND CARE
 
 WE LISTEN, WE CARE. WE ARE MIND-CARE.
 
